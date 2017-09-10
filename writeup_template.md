@@ -17,14 +17,8 @@ The goals of this project were:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./VIZ/examples.jpg "Examples"
+[image2]: ./VIZ/distribution.jpg "Distribution"
 
 -----
 
@@ -54,17 +48,26 @@ I used basic numpy operations to calculate summary statistics of the traffic sig
 
 ####2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is a graph of some example images from the data and their labels.
 
-![alt text][image1]
+![Example images][image1]
 
-###Design and Test a Model Architecture
+And here is a graph that shows the distribution of classes (`n_classes = 43`) across all training, validation, and test data:
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+![Class distribution][image2]
 
-As a first step, I decided to convert the images to grayscale because ...
 
-Here is an example of a traffic sign image before and after grayscaling.
+### Design and Test a Model Architecture
+
+###### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+
+I preprocessed the images in two steps: converting to grayscale and normalizing them from `[0,256]` to `[-1,1]`.
+
+My guiding principle in this project *do the simplest possible thing, and see if I can get it to work*. In this vein, I decided to use grayscale so I could have fewer degrees of freedom when hand-tweaking the architecture. Moreover, I intuitively felt like there was enough geometrically distinct about the different signs to warrant ignoring colors like blue and red. Given more time I'd like to more carefully test the efficacy of including color.
+
+As for normalization, I wanted to follow best practices by having my weights be initialized to random, small values normally distributed around zero. It makes sense to have my pixel data be on the same order of magnitude as my weights themselves.
+
+Here is an example of a traffic sign image before and after Pre-processing.
 
 ![alt text][image2]
 
