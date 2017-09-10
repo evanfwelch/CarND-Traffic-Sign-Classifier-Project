@@ -8,4 +8,4 @@ models
 *.p
 
 !**/.gitkeep
-!DATA/online_examples/*
+!DATA/online_examples/**
