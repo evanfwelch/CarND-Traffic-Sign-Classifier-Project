@@ -1,7 +1,11 @@
 DATA/**
-!**/.gitkeep
+
+
 .ipynb_checkpoints
 *.h5
 models
 *.swp
 *.p
+
+!**/.gitkeep
+!DATA/online_examples/*
