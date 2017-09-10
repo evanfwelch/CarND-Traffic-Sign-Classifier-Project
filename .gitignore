@@ -1,4 +1,5 @@
 DATA/**
+!**/.gitkeep
 .ipynb_checkpoints
 *.h5
 models
