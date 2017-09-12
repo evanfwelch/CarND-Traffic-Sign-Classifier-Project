@@ -136,8 +136,24 @@ All of these choices were done "By hand". In production I full well would expect
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8]
+![alt text][image4]
+The above image is a fairly wide angle compared to those in the training set. Once it gets resized to 32x32, the actual depiction of children crossing might be fairly small and off center.
+
+![alt text][image5]
+
+This image depicting road work has quite a bit of blue sky around the edges, which, like the above image, might make the actual information contained within the sign harder to classify after it gets resized down to 32x32. Moreover, the sign has some noticeable fading and glare on it.
+
+![alt text][image6]
+
+This sign depicting a slipper road is well centered and cropped within the frame. I suppose the linear watermarks around the edges might pose a challenge but I think my classifier wont "expect" to find lots of informative content out there.
+
+![alt text][image7]
+
+Similarly, this sign of animals crossing is perfectly framed within the image and overlaid on a plain white background with a subtle cropping. Once again the watermarks might pose a challenge but not likely.
+
+![alt text][image8]
+
+This Yield sign is fairly off center, in a wide angle shot, and against a very green and textured backdrop. All of these factors might be challenging after it gets grayscaled and resized.
 
 While all of these images appear are high resolution JPEGs that aren't blurry or obscured, I used `scipy.misc.imread` and `scipy.misc.imresize` to read and downsample them to 32x32x3 images. I did not bother to do any cropping or centering which could prove to be a challenge for classification.
 
